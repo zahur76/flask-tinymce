@@ -11,5 +11,5 @@ Run following commands to initialise database app.db:
 ## INSTALLATION
 
 Run:
-*$ pip install -e .
+*$ pip install -r requirements.txt
 
