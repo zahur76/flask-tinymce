@@ -10,6 +10,9 @@ from flaskr import db
 
 from flask_login import login_user, logout_user
 
+from .email.email import send_email
+from flask import render_template
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/register', methods=('GET', 'POST'))
@@ -51,6 +54,11 @@ def login():
             return redirect(url_for('auth.login'))
         else:
             login_user(user)
+            send_email(subject='Logged In',
+               sender='zahur@gmail.com',
+               recipients=[user.email],
+               text_body=render_template('emails/email_template.txt'),
+               html_body=render_template('emails/email_template.html'))
             return redirect(url_for('example.example'))
 
     return render_template('auth/login.html')

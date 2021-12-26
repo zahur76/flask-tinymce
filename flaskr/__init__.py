@@ -4,6 +4,8 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_mail import Mail
+mail = Mail()
 
 
 db = SQLAlchemy()
@@ -28,10 +30,13 @@ def create_app(test_config=None):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # user login security
+    # set-up user login security
     login_manager.init_app(app)
-    
 
+    # set-up mail
+    mail.init_app(app)
+    
+    print(app.config)
     # home page   
     @app.route('/')
     def home():
