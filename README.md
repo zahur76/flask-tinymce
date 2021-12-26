@@ -8,3 +8,8 @@ Run following commands to initialise database app.db:
 * $ flask db migrate -m "users table"
 * $ flask db upgrade
 
+## INSTALLATION
+
+Run:
+*$ pip install -e .
+
