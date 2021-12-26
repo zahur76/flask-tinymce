@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <div class="h1 text-center">{% block title %}Example Page{% endblock %}</div>
+{% endblock %}
+
+{% block content %}
+    {% if current_user.is_authenticated %}
+      Hi {{ current_user.username }}!
+    {% endif %}
+{% endblock %}
