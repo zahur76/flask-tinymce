@@ -1,5 +1,5 @@
 # DESCRIPTION
-Boilerplate set-up for flask application factory
+Boilerplate set-up for flask application factory with login and logout feature
 
 ## DATABASE
 
