@@ -9,3 +9,9 @@
 .bg-form {
     background: rgb(231, 231, 231);
 }
+
+@media screen and (max-width: 576px){    
+    .login-form {
+        width: 90% !important;
+    }
+}

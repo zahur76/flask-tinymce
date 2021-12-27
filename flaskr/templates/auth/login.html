@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}    
-    <form class="w-50 mx-auto bg-form p-3 rounded-1" href="{{ url_for('auth.login') }}" method="POST">
+    <form class="w-50 login-form mx-auto bg-form p-3 pb-2 rounded-1" href="{{ url_for('auth.login') }}" method="POST">
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp" required>
@@ -15,5 +15,6 @@
           <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <p class="p-1">Forgot your password click <a href="{{ url_for('auth.reset_password') }}">here</a></p>
     </form>
 {% endblock %}
