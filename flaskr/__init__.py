@@ -5,6 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
+
+from werkzeug.security import generate_password_hash
 mail = Mail()
 
 
@@ -25,7 +27,7 @@ def create_app(test_config=None):
         app.config.from_object(Config)
     else:
         # load the test config if passed in
-        app.config.from_mapping(test_config) 
+        app.config.from_mapping(test_config)
     
     db.init_app(app)
     migrate.init_app(app, db)
@@ -35,11 +37,22 @@ def create_app(test_config=None):
 
     # set-up mail
     mail.init_app(app)
+
+    from .models import User
     
     # home page   
     @app.route('/')
     def home():
+        user = User.query.filter_by(username='zahur').first()
+        if user:
+            return render_template('home/home.html')
+        user= User()
+        user.username = 'zahur'
+        user.password_hash = generate_password_hash('zahur')
+        user.email = 'za@hotmail.com'
+        user.save()
         return render_template('home/home.html')
+        
 
     # Register auth bp
     from . import auth, example

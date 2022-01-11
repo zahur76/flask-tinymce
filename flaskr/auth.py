@@ -124,3 +124,13 @@ def password_change():
             return redirect(url_for('auth.login'))
                 
     return render_template('auth/password_change.html')
+
+
+@bp.route('/initialise')
+def initialise():
+    user= User()
+    user.username = 'zahur'
+    user.password_hash = generate_password_hash('zahur')
+    user.email = 'za@hotmail.com'
+    user.save()    
+    return redirect(url_for('home'))

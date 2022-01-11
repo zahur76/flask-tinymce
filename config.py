@@ -1,6 +1,8 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+from pathlib import Path
+
 class Config(object):
     ENV = "development"
     DEBUG = True
@@ -11,6 +13,11 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     EMAIL_CONFIRMATION_DISABLED = False
+
+    BASE_DIR = Path(__file__).resolve().parent
+    print(BASE_DIR)
+    UPLOAD_FOLDER = os.path.join(BASE_DIR, 'flaskr/static/upload')
+    
     # flask-mailman configs
     MAIL_SERVER = 'localhost'
     MAIL_PORT = 1025
