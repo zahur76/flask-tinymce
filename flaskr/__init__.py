@@ -36,12 +36,10 @@ def create_app(test_config=None):
     # set-up mail
     mail.init_app(app)
     
-    print(app.config)
     # home page   
     @app.route('/')
     def home():
         return render_template('home/home.html')
-    
 
     # Register auth bp
     from . import auth, example
