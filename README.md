@@ -1,5 +1,5 @@
 # DESCRIPTION
-Boilerplate set-up for flask application factory with login and logout feature
+Example of tinymce in flask
 
 ## DATABASE
 
@@ -9,7 +9,9 @@ Run following commands to initialise database app.db:
 * $ flask db upgrade
 
 ## INSTALLATION
-
+initial user login credentials : 
+username: 'zahur'
+password: 'zahur'
 Run:
 *$ pip install -r requirements.txt
 
